@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DatabaseQuizApp</string>
+    <string name="title_activity_topic_list">TopicListActivity</string>
+    <string name="title_activity_you_tube">YouTubeActivity</string>
+</resources>
