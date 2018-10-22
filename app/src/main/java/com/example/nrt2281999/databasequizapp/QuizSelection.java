@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 public class QuizSelection extends Activity {
@@ -18,6 +19,8 @@ public class QuizSelection extends Activity {
     Button sqliteButton;
     Button contProButton;
     Button contResButton;
+    TextView selectTextView;
+    TextView selectTextView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,10 @@ public class QuizSelection extends Activity {
             }
         });
 
+        //Linking the text views to the ones in the UI
+        selectTextView = findViewById(R.id.selectTextView);
+        selectTextView2 = findViewById(R.id.selectTextView2);
+
         //Linking the button to the one in the UI
         homeButton = findViewById(R.id.home_button);
 
@@ -66,7 +73,7 @@ public class QuizSelection extends Activity {
         sqliteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QuizSelection.this,SQLiteQuiz.class);
+                Intent intent = new Intent(QuizSelection.this,TopicQuiz.class);
                 //sending the name of the topic through intent to show the
                 //corresponding questions
                 intent.putExtra("topic_name","sqlite");
@@ -78,7 +85,7 @@ public class QuizSelection extends Activity {
         contProButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QuizSelection.this,SQLiteQuiz.class);
+                Intent intent = new Intent(QuizSelection.this,TopicQuiz.class);
                 //sending the name of the topic through intent to show the
                 //corresponding questions
                 intent.putExtra("topic_name","contentprovider");
@@ -90,7 +97,7 @@ public class QuizSelection extends Activity {
         contResButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QuizSelection.this,SQLiteQuiz.class);
+                Intent intent = new Intent(QuizSelection.this,TopicQuiz.class);
                 //sending the name of the topic through intent to show the
                 //corresponding questions
                 intent.putExtra("topic_name","contentresolver");

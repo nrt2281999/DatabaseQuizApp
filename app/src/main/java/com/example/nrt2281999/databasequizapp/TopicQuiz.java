@@ -1,7 +1,6 @@
 package com.example.nrt2281999.databasequizapp;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -10,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SQLiteQuiz extends Activity {
+public class TopicQuiz extends Activity {
 
     //Declaring the components to link to the UI
     TextView questionTextView;
@@ -26,7 +25,7 @@ public class SQLiteQuiz extends Activity {
     //creating a "topic" object to store the topic name being transferred from the intent
     String topic;
 
-    String TAG = "SQLiteQuiz";
+    String TAG = "TopicQuiz";
 
     //To count the number of questions the user got right
     int rightQuesCounter=0;
@@ -37,7 +36,7 @@ public class SQLiteQuiz extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sqlite_quiz);
+        setContentView(R.layout.activity_topic_quiz);
 
         //Linking the components to the UI
         questionTextView = findViewById(R.id.quesTextView);
@@ -110,10 +109,10 @@ public class SQLiteQuiz extends Activity {
                     //returning a feedback saying "correct answer" if the user has chosen the correct answer and
                     //"incorrect answer" otherwise
                 if (question[quesNumber].isAnsTrue()) {
-                    Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
                     rightQuesCounter++;
                 } else {
-                    Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
                 }
 
                 //incrementing quesNumber to move to the next question
@@ -123,13 +122,16 @@ public class SQLiteQuiz extends Activity {
             }
             else {
                     if (question[quesNumber].isAnsTrue()) {
-                        Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
                         rightQuesCounter++;
                     } else {
-                        Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
                     }
                     Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
-                    Intent intent = new Intent(SQLiteQuiz.this,MainMenu.class);
+
+                    //Having an intent to move to the Result screen while passing the rightQuesCounter to get the result
+                    Intent intent = new Intent(TopicQuiz.this,Result.class);
+                    intent.putExtra("rightQuesCounter",rightQuesCounter);
                     startActivity(intent);
                 }
 
@@ -146,10 +148,10 @@ public class SQLiteQuiz extends Activity {
                     //returning a feedback saying "correct answer" if the user has chosen the correct answer and
                     //"incorrect answer" otherwise
                 if (question[quesNumber].isAnsTrue()){
-                    Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
                     rightQuesCounter++;
                 }
                     //incrementing quesNumber to move to the next question
@@ -158,16 +160,18 @@ public class SQLiteQuiz extends Activity {
             }
                 else {
                     if (question[quesNumber].isAnsTrue()){
-                        Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
                         rightQuesCounter++;
                     }
 
                     Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
 
-                    Intent intent = new Intent(SQLiteQuiz.this,MainMenu.class);
+                    //Having an intent to move to the Result screen while passing the rightQuesCounter to get the result
+                    Intent intent = new Intent(TopicQuiz.this,Result.class);
+                    intent.putExtra("rightQuesCounter",rightQuesCounter);
                     startActivity(intent);
                 }}}
             );

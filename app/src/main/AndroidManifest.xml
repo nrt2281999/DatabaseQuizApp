@@ -30,11 +30,14 @@
             android:exported="true"
             android:label="@string/title_activity_quiz_selection" />
         <activity
-            android:name=".SQLiteQuiz"
+            android:name=".TopicQuiz"
             android:label="@string/title_activity_topic1_quiz" />
         <activity
             android:name=".MainMenu"
-            android:label="@string/title_activity_main_menu"></activity>
+            android:label="@string/title_activity_main_menu" />
+        <activity
+            android:name=".Result"
+            android:label="@string/title_activity_result"></activity>
     </application>
 
 </manifest>

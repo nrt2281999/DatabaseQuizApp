@@ -36,4 +36,5 @@ SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVA
     <string name="question19"> An app talks to the resolver and calls the appropriate methods to the provider  </string>
     <string name="question20">Add stuff </string>
     <string name="question21">Add stuff </string>
+    <string name="title_activity_result">Result</string>
 </resources>
