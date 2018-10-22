@@ -8,10 +8,9 @@ import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
-    //This app is mainly designed for nexus 4, api 17. Use this for suitable layout.
+//Please read the README note before reading these files
+public class StartScreen extends AppCompatActivity {
     //Declaring UI variables.Declaration is made here so that inner methods can access these variables.
-
     Button nextButton;
     TextView appName;
     TextView appDesc;
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_start_screen);
 
         //Assigning values to the variables to link them to the matching UI components in the layout
         nextButton = findViewById(R.id.nextButton);
@@ -55,14 +54,14 @@ public class MainActivity extends AppCompatActivity {
         //Create an on-clicked animation for the button
         final AlphaAnimation buttonClicked = new AlphaAnimation(1f,0.4f);
 
-        /*Now we need to make an intent to move to the Topic List Activity through clicking the "Next" Button
+        /*Now we need to make an intent to move to the Main Menu through clicking the "Next" Button
         https://stackoverflow.com/questions/20241857/android-intent-cannot-resolve-constructor */
         
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view.startAnimation(buttonClicked);
-                Intent intent = new Intent(view.getContext(),TopicListActivity.class);
+                Intent intent = new Intent(view.getContext(),MainMenu.class);
                 startActivity(intent);
 
             }

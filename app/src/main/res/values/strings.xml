@@ -2,4 +2,10 @@
     <string name="app_name">DatabaseQuizApp</string>
     <string name="title_activity_topic_list">TopicListActivity</string>
     <string name="title_activity_you_tube">YouTubeActivity</string>
+    <string name="title_activity_quiz_selection">QuizSelection</string>
+    <string name="title_activity_topic1_quiz">Topic1Quiz</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="question1"> Is INFS fun?</string>
+    <string name="question2"> life is ez? </string>
+    <string name="question3"> People cry at UNSW?</string>
 </resources>

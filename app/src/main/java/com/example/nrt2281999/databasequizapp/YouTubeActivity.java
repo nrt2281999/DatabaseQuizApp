@@ -1,10 +1,12 @@
 package com.example.nrt2281999.databasequizapp;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -22,14 +24,21 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     //Declaring a Google API variable to access YouTube. This API Key can be retrieved from Google Console.
     static final String GOOGLE_API_KEY = "AIzaSyAkuLBVRvCNPGvwmq0-VhFhNkOOSlrAGZs";
 
-    //Get the current intent
-    Intent intent =getIntent();
+    //Defining TAG for the onSuccessIninitalisation method to know which activity to refer to later on.
+    private static final String TAG = "YoutubeActivity";
 
-    //Declaring and defining the YouTube Video ID of the video to be played.
-    final String YOUTUBE_VIDEO_ID = intent.getStringExtra("youtube_id");
+     String YOUTUBE_VIDEO_ID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Get the current intent
+        Intent intent =getIntent();
+
+        //Declaring and defining the YouTube Video ID of the video to be played.
+         YOUTUBE_VIDEO_ID = intent.getStringExtra("youtube_id");
+
+
         //Creating a constraint layout for the activity
         ConstraintLayout layout = (ConstraintLayout) getLayoutInflater().inflate(R.layout.activity_you_tube, null);
         setContentView(layout);
@@ -43,10 +52,19 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
         playerView.initialize(GOOGLE_API_KEY,this);
     }
 
-    //Setting methods for when the activity is successfully initialised
+        //Setting methods for when the activity is successfully initialised
     @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
+        //This sends back a message to the system to let us know the initilisation process was successful and who the provider is
+        Log.d(TAG, "onInitiliasationSuccess: provider is: " + provider.getClass().toString());
 
+        //Setting a listener to respond to the change in state of the video
+        youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
+
+        //If the video was not restored, play a new video with the ID provided
+        if(!wasRestored){
+            youTubePlayer.cueVideo(YOUTUBE_VIDEO_ID);
+        }
     }
 
 
@@ -63,4 +81,44 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
             Toast.makeText(this,errorMessage, Toast.LENGTH_LONG).show();
         }
     }
+
+
+    // Setting methods so that the app would lead the user to the questions part when video ends
+    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
+        @Override
+        public void onLoading() {
+
+        }
+
+        @Override
+        public void onLoaded(String s) {
+
+        }
+
+        @Override
+        public void onAdStarted() {
+
+        }
+
+        @Override
+        public void onVideoStarted() {
+
+        }
+
+        @Override
+        public void onVideoEnded() {
+
+            //making an intent to move back to the Main Menu
+            Intent intentQues = new Intent(YouTubeActivity.this,MainMenu.class);
+            startActivity(intentQues);
+
+            //This sends back a message to the system let the programmer know method works when the video ends or not.
+            Log.d(TAG,"Activity has ended");
+        }
+
+        @Override
+        public void onError(YouTubePlayer.ErrorReason errorReason) {
+
+        }
+    };
 }

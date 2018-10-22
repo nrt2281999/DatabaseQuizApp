@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">  <!-- Background xml got from https://www.youtube.com/watch?v=7OvsWwbvYsM -->
+    tools:context=".StartScreen">  <!-- Background xml got from https://www.youtube.com/watch?v=7OvsWwbvYsM -->
 
 
     <TextView
