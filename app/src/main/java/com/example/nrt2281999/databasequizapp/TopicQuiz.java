@@ -127,6 +127,7 @@ public class TopicQuiz extends Activity {
                     } else {
                         Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
                     }
+                    //Checking to see if the rightQuesCounter worked or not
                     Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
 
                     //Having an intent to move to the Result screen while passing the rightQuesCounter to get the result
@@ -167,6 +168,7 @@ public class TopicQuiz extends Activity {
                         rightQuesCounter++;
                     }
 
+                    //Checking to see if the rightQuesCounter worked or not
                     Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
 
                     //Having an intent to move to the Result screen while passing the rightQuesCounter to get the result

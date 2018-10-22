@@ -29,7 +29,7 @@ public class TopicVideoActivity extends Activity {
         //Create an on-clicked animation for the button
         final AlphaAnimation buttonClicked = new AlphaAnimation(1f,0.7f);
 
-        //Now we need to make an intent to move to the YouTube Activity through clicking the "Topic" Button
+        //Now we need to make an intent to move to the YouTube Activity through clicking the button
         sqliteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
