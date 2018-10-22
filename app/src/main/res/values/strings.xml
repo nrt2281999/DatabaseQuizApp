@@ -5,7 +5,35 @@
     <string name="title_activity_quiz_selection">QuizSelection</string>
     <string name="title_activity_topic1_quiz">Topic1Quiz</string>
     <string name="title_activity_main_menu">MainMenu</string>
-    <string name="question1"> Is INFS fun?</string>
-    <string name="question2"> life is ez? </string>
-    <string name="question3"> People cry at UNSW?</string>
+
+    <string name="question1"> A database is a system that is most widely used in android is SQLite</string>
+    <string name="question2"> SQLite requires a separate server to run on </string>
+    <string name="question3"> QLite focuses on four commands- Select, Add, Update and Delete </string>
+    <string name="question4"> The main package of an SQLite database is android.database.SQLite </string>
+    <string name="question5"> The syntax of an SQLite database is as follows:
+SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVATE,null);</string>
+    <string name="question6"> To create a table or insert a table in the database you use the execSQL method </string>
+    <string name="question7"> To fetch data within a database the getQuery() method is used to return the resultSet with the cursor pointing to the table  </string>
+
+
+    <string name="question8">It is best to directly call the SQLite database from the activity code  </string>
+    <string name="question9">Content providers act as a layer between the DB and the activity  </string>
+    <string name="question10">Content providers manage access to a central repository of data </string>
+    <string name="question11">An advantage of a content provider is that it is a good abstraction layer
+        between the data source and the UI code so it can add data validation, manage a structured set
+        of data and modify how the data is stored  </string>
+    <string name="question12"> A content provider is NOT a blackbox that hides the underlying data in the UI </string>
+    <string name="question13"> You can change the data source without changing the UI code when using content providers </string>
+    <string name="question14">Content providers are primarily intended to be used by other applications,
+        which access the provider using a provider object </string>
+
+
+    <string name="question15"> To access data in your content provider you use a content resolver object  </string>
+    <string name="question16"> The content resolver methods provide the basic CRUD (create, retrieve, update, delete)
+        functions of persistent storage </string>
+    <string name="question17">A URI stands for a user resource identifier </string>
+    <string name="question18"> A content resolver resolves the content within an application by providing resulting queries  </string>
+    <string name="question19"> An app talks to the resolver and calls the appropriate methods to the provider  </string>
+    <string name="question20">Add stuff </string>
+    <string name="question21">Add stuff </string>
 </resources>

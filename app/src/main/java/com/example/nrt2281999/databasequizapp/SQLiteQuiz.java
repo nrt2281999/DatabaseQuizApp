@@ -1,7 +1,10 @@
 package com.example.nrt2281999.databasequizapp;
 
+import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,10 +18,21 @@ public class SQLiteQuiz extends Activity {
     Button falseButton;
 
     //Defining the Questions array to store the questions
-    Questions[] question = new Questions[5];
+    Questions[] question = new Questions[21];
 
     //To keep track of which question is being asked
     int quesNumber = 0;
+
+    //creating a "topic" object to store the topic name being transferred from the intent
+    String topic;
+
+    String TAG = "SQLiteQuiz";
+
+    //To count the number of questions the user got right
+    int rightQuesCounter=0;
+
+    //To count how many questions have been asked
+    int quesCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,40 +45,132 @@ public class SQLiteQuiz extends Activity {
         falseButton = findViewById(R.id.falseButton);
 
         //Constructing the question objects with actual parameters
+        //set of questions for sqlite
         question[0] = new Questions(R.string.question1, true);
         question[1] = new Questions(R.string.question2, false);
+        question[2] = new Questions(R.string.question3,false);
+        question[3] = new Questions(R.string.question4,true);
+        question[4] = new Questions(R.string.question5,true);
+        question[5] = new Questions(R.string.question6,true);
+        question[6] = new Questions(R.string.question7,false);
 
-        //Setting the textView to the first question
+        //set of questions for Content Provider
+        question[7] = new Questions(R.string.question8, false);
+        question[8] = new Questions(R.string.question9, true);
+        question[9] = new Questions(R.string.question10,true);
+        question[10] = new Questions(R.string.question11,true);
+        question[11] = new Questions(R.string.question12,false);
+        question[12] = new Questions(R.string.question13,true);
+        question[13] = new Questions(R.string.question14,true);
+
+        //set of questions for Content Resolver
+        question[14] = new Questions(R.string.question15, true);
+        question[15] = new Questions(R.string.question16, true);
+        question[16] = new Questions(R.string.question17,false);
+        question[17] = new Questions(R.string.question18,false);
+        question[18] = new Questions(R.string.question19,true);
+        question[19] = new Questions(R.string.question20,true);
+        question[20] = new Questions(R.string.question21,true);
+
+
+        //Retrieving the intent sent
+        Intent intent = getIntent();
+
+        //Defining the "topic" object with the "topic_name" delivered by the intent
+        topic = intent.getStringExtra("topic_name");
+
+        //checking to see if the method getStringExtra worked or not, to see if topic is null.
+        Log.d(TAG, "The name of the topic is: "+ topic);
+
+        //Setting the textView to the first question of the corresponding topic
+        //Setting quesNumber to the corresponding first question number of the topic being asked
+        if(topic.equals("sqlite")){
         questionTextView.setText(question[0].getQuesStatement());
+        quesNumber=0;}
+        else if (topic.equals("contentprovider")){
+            questionTextView.setText(question[7].getQuesStatement());
+            quesNumber=7;
+        }
+        else {
+            questionTextView.setText(question[14].getQuesStatement());
+            quesNumber=14;
+        }
+
+
 
         //setting an OnClickListener for the buttons to return a feedback on the user's answer and
         //move to the next question
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //increment the counter to get the quiz to stop moving to the next question if it's
+                //the last on already
+                quesCounter++;
+                if(quesCounter<7){
+                    //returning a feedback saying "correct answer" if the user has chosen the correct answer and
+                    //"incorrect answer" otherwise
                 if (question[quesNumber].isAnsTrue()) {
                     Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                    rightQuesCounter++;
                 } else {
                     Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
                 }
 
+                //incrementing quesNumber to move to the next question
                 quesNumber++;
                 questionTextView.setText(question[quesNumber].getQuesStatement());
+
             }
+            else {
+                    if (question[quesNumber].isAnsTrue()) {
+                        Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                        rightQuesCounter++;
+                    } else {
+                        Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+                    }
+                    Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
+                    Intent intent = new Intent(SQLiteQuiz.this,MainMenu.class);
+                    startActivity(intent);
+                }
+
+            }
+
         });
 
         falseButton.setOnClickListener(new View.OnClickListener(){
             public void onClick (View view){
+                //increment the counter to get the quiz to stop moving to the next question if it's
+                //the last on already
+                quesCounter++;
+                if(quesCounter<7){
+                    //returning a feedback saying "correct answer" if the user has chosen the correct answer and
+                    //"incorrect answer" otherwise
                 if (question[quesNumber].isAnsTrue()){
                     Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
 
                 } else {
                     Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                    rightQuesCounter++;
                 }
-
+                    //incrementing quesNumber to move to the next question
                 quesNumber++;
                 questionTextView.setText(question[quesNumber].getQuesStatement());
-            }});
+            }
+                else {
+                    if (question[quesNumber].isAnsTrue()){
+                        Toast.makeText(SQLiteQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        Toast.makeText(SQLiteQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                        rightQuesCounter++;
+                    }
+
+                    Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
+
+                    Intent intent = new Intent(SQLiteQuiz.this,MainMenu.class);
+                    startActivity(intent);
+                }}}
+            );
     }
 
 }

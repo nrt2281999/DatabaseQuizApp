@@ -67,7 +67,35 @@ public class QuizSelection extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(QuizSelection.this,SQLiteQuiz.class);
+                //sending the name of the topic through intent to show the
+                //corresponding questions
+                intent.putExtra("topic_name","sqlite");
                 startActivity(intent);
+
+            }
+        });
+
+        contProButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuizSelection.this,SQLiteQuiz.class);
+                //sending the name of the topic through intent to show the
+                //corresponding questions
+                intent.putExtra("topic_name","contentprovider");
+                startActivity(intent);
+
+            }
+        });
+
+        contResButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuizSelection.this,SQLiteQuiz.class);
+                //sending the name of the topic through intent to show the
+                //corresponding questions
+                intent.putExtra("topic_name","contentresolver");
+                startActivity(intent);
+
             }
         });
     }
