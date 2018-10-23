@@ -9,7 +9,11 @@ have read the lecture notes before hand.
 Content Provider and Content Resolver.
 4. The app will provide students feedback upon their answer for each question and a final grade will be given at the end of the quiz.
 
-Instructions:
+Instructions for setting up the app:
+1. There should not be any problems, just run the app as normal.
+2. Remember to use Nexus 5X API28 for optimal layout.
+
+Instructions for using the app:
 1. At the start screen, click next to move to the general information about the topic.
 2. From here, click next to keep viewing the information and eventually it will take the user to the main menu.
 3. From here, there are 2 options for the user. Either to learn first then take the quiz or just take quiz right away.
