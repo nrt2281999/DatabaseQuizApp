@@ -37,4 +37,5 @@ SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVA
     <string name="question20">Add stuff </string>
     <string name="question21">Add stuff </string>
     <string name="title_activity_result">Result</string>
+    <string name="title_activity_general_info">GeneralInfo</string>
 </resources>

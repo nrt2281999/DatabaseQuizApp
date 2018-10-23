@@ -37,7 +37,10 @@
             android:label="@string/title_activity_main_menu" />
         <activity
             android:name=".Result"
-            android:label="@string/title_activity_result"></activity>
+            android:label="@string/title_activity_result" />
+        <activity
+            android:name=".GeneralInfo"
+            android:label="@string/title_activity_general_info"></activity>
     </application>
 
 </manifest>

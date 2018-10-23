@@ -37,7 +37,7 @@ public class TopicVideoActivity extends Activity {
                 Intent intent = new Intent(view.getContext(), YouTubeActivity.class);
 
                 //Sending the youtube_id for the topic to the YouTube Activity to play the required video
-                intent.putExtra("youtube_id","cp2rL3sAFmI");
+                intent.putExtra("youtube_id","s0crCqmtO7U");
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class TopicVideoActivity extends Activity {
                 Intent intent = new Intent(view.getContext(), YouTubeActivity.class);
 
                 //Sending the youtube_id for the topic to the YouTube Activity to play the required video
-                intent.putExtra("youtube_id","N7Www8faKwA");
+                intent.putExtra("youtube_id","fwp57R3S6LU");
                 startActivity(intent);}
         });
 
@@ -60,7 +60,7 @@ public class TopicVideoActivity extends Activity {
                 Intent intent = new Intent(view.getContext(), YouTubeActivity.class);
 
                 //Sending the youtube_id for the topic to the YouTube Activity to play the required video
-                intent.putExtra("youtube_id","MPm0sW7gjIE");
+                intent.putExtra("youtube_id","eNW1d8tiXmQ&t=198s");
                 startActivity(intent);}
         });
     }
