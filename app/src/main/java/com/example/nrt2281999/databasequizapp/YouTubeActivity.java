@@ -27,16 +27,16 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     //Defining TAG for the onSuccessIninitalisation method to know which activity to refer to later on.
     private static final String TAG = "YoutubeActivity";
 
-     String YOUTUBE_VIDEO_ID;
+    String YOUTUBE_VIDEO_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Get the current intent
-        Intent intent =getIntent();
+        Intent intent = getIntent();
 
         //Declaring and defining the YouTube Video ID of the video to be played.
-         YOUTUBE_VIDEO_ID = intent.getStringExtra("youtube_id");
+        YOUTUBE_VIDEO_ID = intent.getStringExtra("youtube_id");
 
 
         //Creating a constraint layout for the activity
@@ -49,10 +49,10 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
         layout.addView(playerView);
 
         //Initialise the playerview with the Google API Key
-        playerView.initialize(GOOGLE_API_KEY,this);
+        playerView.initialize(GOOGLE_API_KEY, this);
     }
 
-        //Setting methods for when the activity is successfully initialised
+    //Setting methods for when the activity is successfully initialised
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
         //This sends back a message to the system to let us know the initilisation process was successful and who the provider is
@@ -62,7 +62,7 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
         youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
 
         //If the video was not restored, play a new video with the ID provided
-        if(!wasRestored){
+        if (!wasRestored) {
             youTubePlayer.cueVideo(YOUTUBE_VIDEO_ID);
         }
     }
@@ -73,12 +73,11 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
         final int REQUEST_CODE = 1;
         //Checking to see if the error is user recoverable, if it is Google Dialog will display a message
-        if (youTubeInitializationResult.isUserRecoverableError()){
-            youTubeInitializationResult.getErrorDialog(this,REQUEST_CODE).show();
-        }
-        else {
+        if (youTubeInitializationResult.isUserRecoverableError()) {
+            youTubeInitializationResult.getErrorDialog(this, REQUEST_CODE).show();
+        } else {
             String errorMessage = String.format("There was an error initialising the YouTubePlayer (%1$s)", youTubeInitializationResult.toString());
-            Toast.makeText(this,errorMessage, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -109,11 +108,11 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
         public void onVideoEnded() {
 
             //making an intent to move back to the Main Menu
-            Intent intentQues = new Intent(YouTubeActivity.this,MainMenu.class);
+            Intent intentQues = new Intent(YouTubeActivity.this, MainMenu.class);
             startActivity(intentQues);
 
             //This sends back a message to the system let the programmer know method works when the video ends or not.
-            Log.d(TAG,"Activity has ended");
+            Log.d(TAG, "Activity has ended");
         }
 
         @Override

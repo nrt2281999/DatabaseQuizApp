@@ -28,7 +28,7 @@ public class TopicQuiz extends Activity {
     String TAG = "TopicQuiz";
 
     //To count the number of questions the user got right
-    int rightQuesCounter=0;
+    int rightQuesCounter = 0;
 
     //To count how many questions have been asked
     int quesCounter = 0;
@@ -47,29 +47,29 @@ public class TopicQuiz extends Activity {
         //set of questions for sqlite
         question[0] = new Questions(R.string.question1, true);
         question[1] = new Questions(R.string.question2, true);
-        question[2] = new Questions(R.string.question3,false);
-        question[3] = new Questions(R.string.question4,true);
-        question[4] = new Questions(R.string.question5,false);
-        question[5] = new Questions(R.string.question6,true);
-        question[6] = new Questions(R.string.question7,false);
+        question[2] = new Questions(R.string.question3, false);
+        question[3] = new Questions(R.string.question4, true);
+        question[4] = new Questions(R.string.question5, false);
+        question[5] = new Questions(R.string.question6, true);
+        question[6] = new Questions(R.string.question7, false);
 
         //set of questions for Content Provider
         question[7] = new Questions(R.string.question8, true);
         question[8] = new Questions(R.string.question9, true);
-        question[9] = new Questions(R.string.question10,true);
-        question[10] = new Questions(R.string.question11,false);
-        question[11] = new Questions(R.string.question12,true);
-        question[12] = new Questions(R.string.question13,false);
-        question[13] = new Questions(R.string.question14,false);
+        question[9] = new Questions(R.string.question10, true);
+        question[10] = new Questions(R.string.question11, false);
+        question[11] = new Questions(R.string.question12, true);
+        question[12] = new Questions(R.string.question13, false);
+        question[13] = new Questions(R.string.question14, false);
 
         //set of questions for Content Resolver
         question[14] = new Questions(R.string.question15, true);
         question[15] = new Questions(R.string.question16, false);
-        question[16] = new Questions(R.string.question17,true);
-        question[17] = new Questions(R.string.question18,true);
-        question[18] = new Questions(R.string.question19,false);
-        question[19] = new Questions(R.string.question20,true);
-        question[20] = new Questions(R.string.question21,false);
+        question[16] = new Questions(R.string.question17, true);
+        question[17] = new Questions(R.string.question18, true);
+        question[18] = new Questions(R.string.question19, false);
+        question[19] = new Questions(R.string.question20, true);
+        question[20] = new Questions(R.string.question21, false);
 
 
         //Retrieving the intent sent
@@ -79,22 +79,20 @@ public class TopicQuiz extends Activity {
         topic = intent.getStringExtra("topic_name");
 
         //checking to see if the method getStringExtra worked or not, to see if topic is null.
-        Log.d(TAG, "The name of the topic is: "+ topic);
+        Log.d(TAG, "The name of the topic is: " + topic);
 
         //Setting the textView to the first question of the corresponding topic
         //Setting quesNumber to the corresponding first question number of the topic being asked
-        if(topic.equals("sqlite")){
-        questionTextView.setText(question[0].getQuesStatement());
-        quesNumber=0;}
-        else if (topic.equals("contentprovider")){
+        if (topic.equals("sqlite")) {
+            questionTextView.setText(question[0].getQuesStatement());
+            quesNumber = 0;
+        } else if (topic.equals("contentprovider")) {
             questionTextView.setText(question[7].getQuesStatement());
-            quesNumber=7;
-        }
-        else {
+            quesNumber = 7;
+        } else {
             questionTextView.setText(question[14].getQuesStatement());
-            quesNumber=14;
+            quesNumber = 14;
         }
-
 
 
         //setting an OnClickListener for the buttons to return a feedback on the user's answer and
@@ -105,22 +103,21 @@ public class TopicQuiz extends Activity {
                 //increment the counter to get the quiz to stop moving to the next question if it's
                 //the last on already
                 quesCounter++;
-                if(quesCounter<7){
+                if (quesCounter < 7) {
                     //returning a feedback saying "correct answer" if the user has chosen the correct answer and
                     //"incorrect answer" otherwise
-                if (question[quesNumber].isAnsTrue()) {
-                    Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
-                    rightQuesCounter++;
+                    if (question[quesNumber].isAnsTrue()) {
+                        Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                        rightQuesCounter++;
+                    } else {
+                        Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+                    }
+
+                    //incrementing quesNumber to move to the next question
+                    quesNumber++;
+                    questionTextView.setText(question[quesNumber].getQuesStatement());
+
                 } else {
-                    Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
-                }
-
-                //incrementing quesNumber to move to the next question
-                quesNumber++;
-                questionTextView.setText(question[quesNumber].getQuesStatement());
-
-            }
-            else {
                     if (question[quesNumber].isAnsTrue()) {
                         Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
                         rightQuesCounter++;
@@ -128,11 +125,11 @@ public class TopicQuiz extends Activity {
                         Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
                     }
                     //Checking to see if the rightQuesCounter worked or not
-                    Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
+                    Log.d(TAG, "You have got " + rightQuesCounter + " out of 7");
 
                     //Having an intent to move to the Result screen while passing the rightQuesCounter to get the result
-                    Intent intent = new Intent(TopicQuiz.this,Result.class);
-                    intent.putExtra("rightQuesCounter",rightQuesCounter);
+                    Intent intent = new Intent(TopicQuiz.this, Result.class);
+                    intent.putExtra("rightQuesCounter", rightQuesCounter);
                     startActivity(intent);
                 }
 
@@ -140,43 +137,44 @@ public class TopicQuiz extends Activity {
 
         });
 
-        falseButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick (View view){
-                //increment the counter to get the quiz to stop moving to the next question if it's
-                //the last on already
-                quesCounter++;
-                if(quesCounter<7){
-                    //returning a feedback saying "correct answer" if the user has chosen the correct answer and
-                    //"incorrect answer" otherwise
-                if (question[quesNumber].isAnsTrue()){
-                    Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+        falseButton.setOnClickListener(new View.OnClickListener() {
+                                           public void onClick(View view) {
+                                               //increment the counter to get the quiz to stop moving to the next question if it's
+                                               //the last on already
+                                               quesCounter++;
+                                               if (quesCounter < 7) {
+                                                   //returning a feedback saying "correct answer" if the user has chosen the correct answer and
+                                                   //"incorrect answer" otherwise
+                                                   if (question[quesNumber].isAnsTrue()) {
+                                                       Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
 
-                } else {
-                    Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
-                    rightQuesCounter++;
-                }
-                    //incrementing quesNumber to move to the next question
-                quesNumber++;
-                questionTextView.setText(question[quesNumber].getQuesStatement());
-            }
-                else {
-                    if (question[quesNumber].isAnsTrue()){
-                        Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
+                                                   } else {
+                                                       Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                                                       rightQuesCounter++;
+                                                   }
+                                                   //incrementing quesNumber to move to the next question
+                                                   quesNumber++;
+                                                   questionTextView.setText(question[quesNumber].getQuesStatement());
+                                               } else {
+                                                   if (question[quesNumber].isAnsTrue()) {
+                                                       Toast.makeText(TopicQuiz.this, "Incorrect Answer", Toast.LENGTH_SHORT).show();
 
-                    } else {
-                        Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
-                        rightQuesCounter++;
-                    }
+                                                   } else {
+                                                       Toast.makeText(TopicQuiz.this, "Correct Answer", Toast.LENGTH_SHORT).show();
+                                                       rightQuesCounter++;
+                                                   }
 
-                    //Checking to see if the rightQuesCounter worked or not
-                    Log.d(TAG,"You have got "+ rightQuesCounter+ " out of 7");
+                                                   //Checking to see if the rightQuesCounter worked or not
+                                                   Log.d(TAG, "You have got " + rightQuesCounter + " out of 7");
 
-                    //Having an intent to move to the Result screen while passing the rightQuesCounter to get the result
-                    Intent intent = new Intent(TopicQuiz.this,Result.class);
-                    intent.putExtra("rightQuesCounter",rightQuesCounter);
-                    startActivity(intent);
-                }}}
-            );
+                                                   //Having an intent to move to the Result screen while passing the rightQuesCounter to get the result
+                                                   Intent intent = new Intent(TopicQuiz.this, Result.class);
+                                                   intent.putExtra("rightQuesCounter", rightQuesCounter);
+                                                   startActivity(intent);
+                                               }
+                                           }
+                                       }
+        );
     }
 
 }

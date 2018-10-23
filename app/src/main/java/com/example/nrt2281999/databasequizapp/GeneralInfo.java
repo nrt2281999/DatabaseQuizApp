@@ -18,7 +18,7 @@ public class GeneralInfo extends Activity {
     TextView textView;
 
     //Declaring a counter to set the button to set the right text after each other
-    int counter=0;
+    int counter = 0;
 
 
     @Override
@@ -47,8 +47,8 @@ public class GeneralInfo extends Activity {
         });
 
         //Linking the button and textView to the ones in the UI
-        nextButton=findViewById(R.id.nextButton2);
-        textView=findViewById(R.id.textView4);
+        nextButton = findViewById(R.id.nextButton2);
+        textView = findViewById(R.id.textView4);
 
         textView.setText("This application will discuss how a database application works by focusing" +
                 " on the 3 main components that define it");
@@ -61,21 +61,17 @@ public class GeneralInfo extends Activity {
                     textView.setText("These components are datasourse, in this case SQLite is chosen because" +
                             " of its popularity and convenience");
                     counter++;
-                }
-                else if (counter==1){
+                } else if (counter == 1) {
                     textView.setText("The other 2 are Content Provider and Content Resolver");
                     counter++;
-                }
-                else if (counter==2){
+                } else if (counter == 2) {
                     textView.setText("These 3 are the foundations to a database app, the communication flow goes as follow");
                     counter++;
-                }
-                else if (counter==3){
+                } else if (counter == 3) {
                     textView.setText("App <=> Content Resolver <=> Content Provider <=> Data Source (SQLite)");
                     counter++;
-                }
-                else {
-                    Intent intent=new Intent(GeneralInfo.this, MainMenu.class);
+                } else {
+                    Intent intent = new Intent(GeneralInfo.this, MainMenu.class);
                     startActivity(intent);
 
                 }

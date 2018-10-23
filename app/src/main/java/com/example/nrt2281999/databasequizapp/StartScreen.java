@@ -25,7 +25,7 @@ public class StartScreen extends AppCompatActivity {
         nextButton = findViewById(R.id.nextButton);
         appName = findViewById(R.id.appName);
         appDesc = findViewById(R.id.appDesc);
-        appDesc2=findViewById(R.id.appDesc2);
+        appDesc2 = findViewById(R.id.appDesc2);
 
         //Setting the description text
         appDesc.setText("Lessons on databases in Android");
@@ -52,16 +52,16 @@ public class StartScreen extends AppCompatActivity {
         nextButton.startAnimation(buttonFadeIn);
 
         //Create an on-clicked animation for the button
-        final AlphaAnimation buttonClicked = new AlphaAnimation(1f,0.4f);
+        final AlphaAnimation buttonClicked = new AlphaAnimation(1f, 0.4f);
 
         /*Now we need to make an intent to move to the General Info Activity through clicking the "Next" Button
         https://stackoverflow.com/questions/20241857/android-intent-cannot-resolve-constructor */
-        
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view.startAnimation(buttonClicked);
-                Intent intent = new Intent(view.getContext(),GeneralInfo.class);
+                Intent intent = new Intent(view.getContext(), GeneralInfo.class);
                 startActivity(intent);
 
             }

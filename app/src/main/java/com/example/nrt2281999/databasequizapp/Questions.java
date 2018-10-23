@@ -7,8 +7,8 @@ public class Questions {
     private boolean ansTrue;
 
     //constructor to make a new Question object
-    public Questions (int stringReference, boolean answer){
-        quesStatement =stringReference;
+    public Questions(int stringReference, boolean answer) {
+        quesStatement = stringReference;
         ansTrue = answer;
     }
 

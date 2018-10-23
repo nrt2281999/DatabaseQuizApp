@@ -18,6 +18,7 @@ public class Result extends Activity {
     TextView textView;
     TextView resultTextView;
     int noRightQues;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +63,10 @@ public class Result extends Activity {
         //Retrieving the intent sent to this activity to retrieve the rightQuesCounter to see how many
         //questions did the user get right
         Intent intent = getIntent();
-        noRightQues = intent.getIntExtra("rightQuesCounter",0);
+        noRightQues = intent.getIntExtra("rightQuesCounter", 0);
 
         //Setting the result as a text for the textView
-        resultTextView.setText(noRightQues+" out of 7");
+        resultTextView.setText(noRightQues + " out of 7");
 
 
     }
