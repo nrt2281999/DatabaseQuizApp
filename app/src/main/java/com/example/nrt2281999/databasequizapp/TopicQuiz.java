@@ -46,30 +46,30 @@ public class TopicQuiz extends Activity {
         //Constructing the question objects with actual parameters
         //set of questions for sqlite
         question[0] = new Questions(R.string.question1, true);
-        question[1] = new Questions(R.string.question2, false);
+        question[1] = new Questions(R.string.question2, true);
         question[2] = new Questions(R.string.question3,false);
         question[3] = new Questions(R.string.question4,true);
-        question[4] = new Questions(R.string.question5,true);
+        question[4] = new Questions(R.string.question5,false);
         question[5] = new Questions(R.string.question6,true);
         question[6] = new Questions(R.string.question7,false);
 
         //set of questions for Content Provider
-        question[7] = new Questions(R.string.question8, false);
+        question[7] = new Questions(R.string.question8, true);
         question[8] = new Questions(R.string.question9, true);
         question[9] = new Questions(R.string.question10,true);
-        question[10] = new Questions(R.string.question11,true);
-        question[11] = new Questions(R.string.question12,false);
-        question[12] = new Questions(R.string.question13,true);
-        question[13] = new Questions(R.string.question14,true);
+        question[10] = new Questions(R.string.question11,false);
+        question[11] = new Questions(R.string.question12,true);
+        question[12] = new Questions(R.string.question13,false);
+        question[13] = new Questions(R.string.question14,false);
 
         //set of questions for Content Resolver
         question[14] = new Questions(R.string.question15, true);
-        question[15] = new Questions(R.string.question16, true);
-        question[16] = new Questions(R.string.question17,false);
-        question[17] = new Questions(R.string.question18,false);
-        question[18] = new Questions(R.string.question19,true);
+        question[15] = new Questions(R.string.question16, false);
+        question[16] = new Questions(R.string.question17,true);
+        question[17] = new Questions(R.string.question18,true);
+        question[18] = new Questions(R.string.question19,false);
         question[19] = new Questions(R.string.question20,true);
-        question[20] = new Questions(R.string.question21,true);
+        question[20] = new Questions(R.string.question21,false);
 
 
         //Retrieving the intent sent

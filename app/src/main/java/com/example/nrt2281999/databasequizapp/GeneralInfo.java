@@ -50,7 +50,7 @@ public class GeneralInfo extends Activity {
         nextButton=findViewById(R.id.nextButton2);
         textView=findViewById(R.id.textView4);
 
-        textView.setText("This application will discuss how databases application works by focusing" +
+        textView.setText("This application will discuss how a database application works by focusing" +
                 " on the 3 main components that define it");
 
         //set an OnClickListener to move to the next text or description of the umbrella topic
