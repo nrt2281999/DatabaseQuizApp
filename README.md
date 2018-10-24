@@ -12,6 +12,7 @@ Content Provider and Content Resolver.
 Instructions for setting up the app:
 1. There should not be any problems, just run the app as normal.
 2. Remember to use Nexus 5X API28 for optimal layout.
+3. Install Build Tools revision 28.0.3 if asked to run the app when in Android Studio
 
 Instructions for using the app:
 1. At the start screen, click next to move to the general information about the topic.
