@@ -1,5 +1,6 @@
 # DatabaseQuizApp
 This app is mainly designed for Nexus 5X or Android 9 API 28. Use this for suitable layout.
+Purpose is to educate students of UNSW to learn more about database applications.
 
 Introduction:
 1. The app introduces the users to a learning interface by providing a "learning" option through YouTube videos and a "quiz" option to test the students on their knowledge of the topic.
