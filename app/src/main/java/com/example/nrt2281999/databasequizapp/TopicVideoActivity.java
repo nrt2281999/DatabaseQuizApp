@@ -62,7 +62,7 @@ public class TopicVideoActivity extends Activity {
                 Intent intent = new Intent(view.getContext(), YouTubeActivity.class);
 
                 //Sending the youtube_id for the topic to the YouTube Activity to play the required video
-                intent.putExtra("youtube_id", "eNW1d8tiXmQ&t=198s");
+                intent.putExtra("youtube_id", "eNW1d8tiXmQ");
                 startActivity(intent);
             }
         });
