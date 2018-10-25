@@ -40,11 +40,12 @@
             android:label="@string/title_activity_result" />
         <activity
             android:name=".GeneralInfo"
-            android:label="@string/title_activity_general_info"></activity>
+            android:label="@string/title_activity_general_info" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

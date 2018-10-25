@@ -24,6 +24,8 @@ public class YouTubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     //Declaring a Google API variable to access YouTube. This API Key can be retrieved from Google Console.
     static final String GOOGLE_API_KEY = "AIzaSyAkuLBVRvCNPGvwmq0-VhFhNkOOSlrAGZs";
 
+
+
     //Defining TAG for the onSuccessIninitalisation method to know which activity to refer to later on.
     private static final String TAG = "YoutubeActivity";
 

@@ -12,36 +12,53 @@
     <string name="question4"> To create a table in the database you need to first override
         the onCreate() method within the subclass of SQLiteOpenHelper </string>
     <string name="question5"> To put information into a database you cannot create your own user method</string>
-    <string name="question6"> the syntax of an SQLite database is as follows:
-SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVATE,null);
+    <string name="question6"> To read information from a database using one of the cursor move
+        methods, you can sometimes call this before you begin reading values in the database
   </string>
     <string name="question7"> To delete information in the database you do not require a
         selection criteria that identifies the rows  </string>
+    <string name="question8"> The delete() method is called when you need to delete information in the database  </string>
+    <string name="question9"> The main package of an SQLite database is android.database.SQLite </string>
+    <string name="question10"> the syntax of an SQLite database is as follows:
+SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVATE,null);
+ </string>
 
 
-    <string name="question8">Content providers act as a layer between the DB and the activity
+    <string name="question11">Content providers act as a layer between the DB and the activity
         and manage access to a central repository of data  </string>
-    <string name="question9">An advantage of a content provider is that it is a good abstraction layer between the data source and the
+    <string name="question12">An advantage of a content provider is that it is a good abstraction layer between the data source and the
         UI code so it can add data validation, manage a structured set of data and modify how the data is stored </string>
-    <string name="question10">A content provider can help in easily sharing data with other apps </string>
-    <string name="question11">A contract is used to interact with the database itself to draw out information </string>
-    <string name="question12"> A contract is used to contact the content provider  </string>
-    <string name="question13"> A content provider knows which app you want to draw information from without specifying  </string>
-    <string name="question14">All apps use the same content provider</string>
+    <string name="question13">A content provider can help in easily sharing data with other apps </string>
+    <string name="question14">A contract is used to interact with the database itself to draw out information </string>
+    <string name="question15"> A contract is used to contact the content provider  </string>
+    <string name="question16"> A content provider knows which app you want to draw information from without specifying  </string>
+    <string name="question17">All apps use the same content provider</string>
+    <string name="question18">Scenarios in which a content provider is used involve: 1) You want to implement a code to access an existing content provider in
+        another application 2) You create a content provider to share code with another application </string>
+    <string name="question19">Lecture information: It is best to directly call the
+        SQLite database from the activity code </string>
+    <string name="question20">Lecture information: A content provider is
+        NOT a blackbox that hides the underlying data in the UI </string>
 
 
-    <string name="question15"> To access data in your content provider you use a content resolver object  </string>
-    <string name="question16"> A content resolver resolves the content within an application by
+    <string name="question21"> To access data in your content provider you use a content resolver object  </string>
+    <string name="question22"> A content resolver resolves the content within an application by
         providing resulting queries </string>
-    <string name="question17">An app talks to the resolver and calls the appropriate methods to the provider </string>
-    <string name="question18"> Content resolvers act like a middle man and determines
+    <string name="question23">An app talks to the resolver and calls the appropriate methods to the provider </string>
+    <string name="question24"> Content resolvers act like a middle man and determines
         which provider will handle the URI   </string>
-    <string name="question19"> In the video, the google+ app draws out information from the contacts
+    <string name="question25"> In the video, the google+ app draws out information from the contacts
         app directly through using a content provider</string>
-    <string name="question20">A content resolver uses the same methods of create(), read(), update() and delete()
+    <string name="question26">A content resolver uses the same methods of create(), read(), update() and delete()
         corresponding to the abstract methods of a content provider i.e. query(),
         insert(), update() and delete() </string>
-    <string name="question21">There is a content resolver for each app  </string>
+    <string name="question27">A content authority is used for the content resolver to determine which content provider to handle the request   </string>
+    <string name="question28">There is a content resolver for each app  </string>
+    <string name="question29">Content resolvers are a single global instance in your application   </string>
+    <string name="question30">A content resolver needs to know the implementation of the content providers it is using  </string>
+
     <string name="title_activity_result">Result</string>
     <string name="title_activity_general_info">GeneralInfo</string>
+    <string name="title_activity_wrong_ans">WrongAns</string>
+    <string name="title_activity_text_info">TextInfo</string>
 </resources>

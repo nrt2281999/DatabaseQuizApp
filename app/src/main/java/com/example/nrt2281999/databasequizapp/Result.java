@@ -19,6 +19,8 @@ public class Result extends Activity {
     TextView resultTextView;
     int noRightQues;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,7 @@ public class Result extends Activity {
         Intent intent = getIntent();
         noRightQues = intent.getIntExtra("rightQuesCounter", 0);
 
+
         //Setting the text that appears based on how well the user did
         if (noRightQues<5){
             textView.setText("Here's your result, seems like you need more help from the WAM God");
@@ -76,7 +79,9 @@ public class Result extends Activity {
         }
 
         //Setting the result as a text for the textView
-        resultTextView.setText(noRightQues + " out of 7");
+        resultTextView.setText(noRightQues + " out of 10");
+
+
 
 
     }
